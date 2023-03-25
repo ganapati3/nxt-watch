@@ -1,0 +1,41 @@
+.login-logo {
+  width: 100px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+.input-bar {
+  height: 35px;
+  border: 1px solid #94a3b8;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+}
+
+#checkbox {
+  width: 20px;
+  margin-right: 10px;
+}
+.login-btn {
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 10px;
+  align-self: stretch;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  margin-top: 15px;
+  height: 40px;
+}
+.err-msg {
+  color: #ff0000;
+  font-family: 'Roboto';
+}
+.err-msg::first-letter {
+  text-transform: uppercase;
+}

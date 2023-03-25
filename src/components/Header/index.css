@@ -1,0 +1,101 @@
+.logo {
+  width: 15%;
+}
+.sm-icon-container {
+  display: none;
+}
+.light-icon {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.dark-icon {
+  color: white;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.close-icon-dark {
+  color: white;
+  align-self: flex-end;
+  margin-left: 340px;
+}
+
+.close-icon-light {
+  color: black;
+  align-self: flex-end;
+  margin-left: 340px;
+}
+.md-icon-container {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  width: 25%;
+  justify-content: space-between;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+.link-item-container {
+  list-style: none;
+}
+.link-item {
+  text-decoration: none;
+  font-weight: 600;
+  color: #616e7c;
+  margin: 10px;
+}
+
+.active {
+  color: red;
+}
+.link-item-dark {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 10px;
+}
+.profile-img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.logout-text {
+  color: white;
+  font-family: 'Roboto';
+}
+.logout-text-light {
+  color: #4f46e5;
+  font-family: 'Roboto';
+}
+.cancel-btn {
+  border: 1px solid #64748b;
+  border-radius: 2px;
+  color: #64748b;
+  font-weight: 600;
+  height: 35px;
+  width: 80px;
+  margin-right: 10px;
+}
+.logout-btn {
+  border-radius: 2px;
+  color: white;
+  font-weight: 600;
+  height: 35px;
+  width: 80px;
+  margin-right: 10px;
+  background-color: #3b82f6;
+}
+@media (max-width: 768px) {
+  .sm-icon-container {
+    display: flex;
+    list-style: none;
+  }
+  .logo {
+    width: 35%;
+  }
+  .md-icon-container {
+    display: none;
+  }
+}
