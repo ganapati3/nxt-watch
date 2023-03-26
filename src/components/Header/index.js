@@ -1,4 +1,4 @@
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter, Link, NavLink} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 import {FiSun, FiLogOut} from 'react-icons/fi'
@@ -23,8 +23,6 @@ const Header = props => {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
-  const {match} = props
-  console.log(match)
 
   return (
     <ThemeContext.Consumer>
@@ -58,7 +56,9 @@ const Header = props => {
         return (
           <>
             <NavBar theme={isDark}>
-              <img className="logo" src={logo} alt="nxt watch logo" />
+              <Link to="/">
+                <img className="logo" src={logo} alt="nxt watch logo" />
+              </Link>
               <ul className="sm-icon-container">
                 <li>
                   <button onClick={toggleTheme} type="button">
@@ -78,11 +78,11 @@ const Header = props => {
                           {lightAndDarkLogo[3]}
                         </button>
                         <ul className="link-item-container">
-                          <Link to="/" className={linkStyle}>
+                          <NavLink to="/" activeClassName="active">
                             <li>
                               <AiFillHome /> Home
                             </li>
-                          </Link>
+                          </NavLink>
                           <Link to="/trending" className={linkStyle}>
                             <li>
                               <HiFire /> Trending

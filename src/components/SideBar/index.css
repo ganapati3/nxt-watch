@@ -1,12 +1,33 @@
 .link-item {
   text-decoration: none;
-  font-weight: 600;
   color: #616e7c;
   margin: 10px;
+  font-weight: 400;
 }
 .link-item-dark {
   color: white;
   text-decoration: none;
-  font-weight: 600;
   margin: 10px;
+  font-weight: 400;
+}
+.link-icon {
+  margin-right: 20px;
+}
+.active {
+  color: red;
+  text-decoration: none;
+  width: 100%;
+  font-weight: 600;
+}
+.social-icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-left: 0px;
+}
+
+.social-icons-container {
+  display: flex;
+  align-items: center;
 }

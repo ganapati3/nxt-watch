@@ -1,5 +1,5 @@
 .logo {
-  width: 15%;
+  width: 45%;
 }
 .sm-icon-container {
   display: none;
@@ -49,6 +49,8 @@ button {
 
 .active {
   color: red;
+  text-decoration: none;
+  width: 100%;
 }
 .link-item-dark {
   color: white;

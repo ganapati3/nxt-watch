@@ -1,10 +1,10 @@
-import {Link} from 'react-router-dom'
-import {AiOutlineClose, AiFillHome} from 'react-icons/ai'
+import {Link, NavLink} from 'react-router-dom'
+import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
 import {MdPlaylistAdd} from 'react-icons/md'
 import ThemeContext from '../../ThemeContext/ThemeContext'
-import {SideBarContainer} from '../../StyledComponent'
+import {SideBarContainer, CustomText} from '../../StyledComponent'
 import './index.css'
 
 const SideBar = () => (
@@ -15,27 +15,64 @@ const SideBar = () => (
       return (
         <SideBarContainer theme={isDark}>
           <ul className="link-item-container">
-            <Link to="/" className={linkStyle}>
+            <NavLink activeClassName="active" to="/" className={linkStyle}>
               <li>
-                <AiFillHome /> Home
+                <AiFillHome className="link-icon" /> Home
               </li>
-            </Link>
-            <Link to="/trending" className={linkStyle}>
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              to="/trending"
+              className={linkStyle}
+            >
               <li>
-                <HiFire /> Trending
+                <HiFire className="link-icon" /> Trending
               </li>
-            </Link>
-            <Link to="/gaming" className={linkStyle}>
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              to="/gaming"
+              className={linkStyle}
+            >
               <li>
-                <SiYoutubegaming /> Gaming
+                <SiYoutubegaming className="link-icon" /> Gaming
               </li>
-            </Link>
-            <Link className={linkStyle} to="/saved-videos">
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              className={linkStyle}
+              to="/saved-videos"
+            >
               <li>
-                <MdPlaylistAdd /> Saved
+                <MdPlaylistAdd className="link-icon" /> Saved
               </li>
-            </Link>
+            </NavLink>
           </ul>
+          <div>
+            <CustomText theme={isDark} as="p">
+              CONTACT US
+            </CustomText>
+            <div className="social-icons-container">
+              <img
+                className="social-icon"
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                alt="facebook logo"
+              />
+              <img
+                className="social-icon"
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                alt="twitter logo"
+              />
+              <img
+                className="social-icon"
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                alt="linked in logo"
+              />
+            </div>
+            <CustomText theme={isDark} as="p">
+              Enjoy! Now to see your channels and recommendations!
+            </CustomText>
+          </div>
         </SideBarContainer>
       )
     }}

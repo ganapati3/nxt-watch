@@ -1,0 +1,4 @@
+.side-bar-and-video-container {
+  display: flex;
+  justify-content: space-between;
+}

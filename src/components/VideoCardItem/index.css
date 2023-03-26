@@ -1,0 +1,46 @@
+.video-item-card {
+  width: 300px;
+  padding: 20px;
+  list-style: none;
+  margin-right: 10px;
+}
+.thumbnail-img {
+  width: 100%;
+}
+.link-style {
+  text-decoration: none;
+}
+.video-card-content {
+  display: flex;
+  margin-top: 10px;
+}
+.light-card-content {
+  color: #1e293b;
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 0px;
+}
+.dark-card-content {
+  color: #f1f1f1;
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 0px;
+}
+.video-card-content {
+  color: #616e7c;
+  font-family: 'Roboto';
+  font-size: 12px;
+}
+.card-channel-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .video-item-card {
+    width: 95vw;
+  }
+}

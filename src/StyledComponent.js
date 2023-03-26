@@ -33,12 +33,14 @@ export const CheckboxLabel = styled(Label)`
   font-weight: 400;
 `
 export const NavBar = styled.nav`
-  background-color: ${props => (props.theme === true ? '#0f0f0f' : '#ffffff')};
+  background-color: ${props => (props.theme === true ? '#181818' : '#ffffff')};
   height: 10vh;
   display: flex;
   align-items: center;
   padding: 10px;
   justify-content: space-between;
+  width: 100vw;
+  position: fixed;
 `
 
 export const HamburgerContainer = styled.div`
@@ -50,12 +52,17 @@ export const HamburgerContainer = styled.div`
   flex-direction: column;
 `
 export const SideBarContainer = styled.div`
-  background-color: ${props => (props.theme === true ? '#0f0f0f' : '#ffffff')};
-  width: 20vw;
-  min-height: 100vh;
-  display: none;
-  @media (min-width: 768px) {
-    display: flex;
+  background-color: ${props => (props.theme === true ? '#181818' : '#ffffff')};
+  width: 22vw;
+  height: 90vh;
+  display: flex;
+  padding: 10px;
+  position: fixed;
+  flex-direction: column;
+  margin-top: 10vh;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    display: none;
   }
   align-items: flex-start;
 `
@@ -78,10 +85,43 @@ export const LogoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${props => (props.theme === true ? '#0f0f0f' : '#ffffff')};
+  background-color: ${props => (props.theme === true ? '#181818' : '#ffffff')};
   box-shadow: ${props =>
     props.theme === true ? '' : '2px 2px 4px 0px #e2e8f0'};
   @media (min-width: 768px) {
     width: 35vw;
   }
+`
+export const CustomText = styled(Label)`
+  color: ${props => (props.theme === true ? '#ffffff' : '#1e293b')};
+`
+
+export const VideoAndBannerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => (props.theme === true ? '#181818' : '#f9f9f9')};
+  width: 78vw;
+  overflow: auto;
+  @media (max-width: 768px) {
+    min-height: 90vh;
+    margin-left: 0px;
+    width: 100vw;
+  }
+  margin-left: 22vw;
+  margin-top: 10vh;
+`
+
+export const FailureTextHeading = styled.h1`
+  color: ${props => (props.theme === true ? '#f9f9f9' : '#1e293b')};
+  font-family: 'Roboto';
+  font-weight: 600;
+  align-self: center;
+  font-size: 25px;
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+`
+export const FailureTextDescription = styled.p`
+  color: ${props => (props.theme === true ? '#909090' : '#475569')};
+  font-family: 'Roboto';
 `

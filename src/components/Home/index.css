@@ -1,3 +1,115 @@
+.banner-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  height: 25%;
+  background-size: 100% 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 .side-bar-and-video-container {
   display: flex;
+  justify-content: space-between;
+}
+.banner-logo {
+  width: 30%;
+}
+.subscription-text {
+  font-weight: 300;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+.get-now-btn {
+  border: 2px solid #212121;
+  border-radius: 2px;
+  color: #212121;
+  font-weight: 500;
+  height: 35px;
+  width: 100px;
+  margin-right: 10px;
+}
+.banner-close-icon {
+  font-size: 30px;
+  padding-top: 0px;
+}
+.home-videos-and-search-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.home-videos-container {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.search-container {
+  display: flex;
+  width: 35%;
+  height: 35px;
+  border: #cccccc 1px solid;
+  margin-bottom: 20px;
+}
+.search-bar {
+  background-color: transparent;
+  width: 80%;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #00306e;
+  height: 100%;
+  border-right: 1px solid #cccccc;
+}
+.search-icon {
+  background-color: #cccccc;
+  color: #909090;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  font-size: 20px;
+}
+.failure-img {
+  width: 40%;
+}
+
+.main-container {
+  height: 100vh;
+}
+.retry-btn {
+  border-radius: 2px;
+  color: white;
+  font-weight: 600;
+  height: 35px;
+  width: 80px;
+  margin-right: 10px;
+  background-color: #00306e;
+}
+.video-card-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .banner-container {
+    background-size: cover;
+    height: 25%;
+  }
+  .banner-logo {
+    width: 20%;
+  }
+  .subscription-text {
+    font-size: 15px;
+  }
+  .search-container {
+    width: 85vw;
+  }
+  .failure-img {
+    width: 80%;
+  }
 }
