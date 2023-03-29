@@ -22,7 +22,12 @@ const apiConstants = {
 }
 
 class Home extends Component {
-  state = {searchInput: '', apiStatus: '', homeVideos: []}
+  state = {
+    searchInput: '',
+    apiStatus: '',
+    homeVideos: [],
+    isBannerClosed: false,
+  }
 
   componentDidMount() {
     this.getHomeVideoContent()
@@ -101,15 +106,56 @@ class Home extends Component {
     </ThemeContext.Consumer>
   )
 
+  renderNoVideosView = () => (
+    <ThemeContext.Consumer>
+      {value => {
+        const {isDark} = value
+
+        return (
+          <>
+            <img
+              className="failure-img"
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+              alt="no videos"
+            />
+            <FailureTextHeading theme={isDark}>
+              No Search results found
+            </FailureTextHeading>
+            <FailureTextDescription theme={isDark}>
+              Try different keywords or remove search results
+            </FailureTextDescription>
+            <button
+              onClick={this.onClickRetry}
+              type="button"
+              className="retry-btn"
+            >
+              Retry
+            </button>
+          </>
+        )
+      }}
+    </ThemeContext.Consumer>
+  )
+
   renderHomeVideos = () => {
     const {homeVideos} = this.state
     return (
-      <ul className="video-card-items">
-        {homeVideos.map(video => (
-          <VideoCardItem videoDetails={video} />
-        ))}
-      </ul>
+      <>
+        {homeVideos.length > 0 ? (
+          <ul className="video-card-items">
+            {homeVideos.map(video => (
+              <VideoCardItem key={video.id} videoDetails={video} />
+            ))}
+          </ul>
+        ) : (
+          this.renderNoVideosView()
+        )}
+      </>
     )
+  }
+
+  filterResults = () => {
+    this.getHomeVideoContent()
   }
 
   renderView = () => {
@@ -126,7 +172,16 @@ class Home extends Component {
     }
   }
 
+  closeBanner = () => {
+    this.setState({isBannerClosed: true})
+  }
+
+  updateSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   render() {
+    const {searchInput, isBannerClosed} = this.state
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -137,33 +192,43 @@ class Home extends Component {
               <div className="side-bar-and-video-container">
                 <SideBar />
                 <VideoAndBannerContainer theme={isDark} data-testid="home">
-                  <div className="banner-container">
-                    <div>
-                      <img
-                        className="banner-logo"
-                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                        alt="nxt watch logo"
-                      />
-                      <p className="subscription-text">
-                        Buy NXT Watch Premium prepaid plans with UPI
-                      </p>
-                      <button type="button" className="get-now-btn">
-                        GET IT NOW
+                  {isBannerClosed ? null : (
+                    <div className="banner-container">
+                      <div>
+                        <img
+                          className="banner-logo"
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                          alt="nxt watch logo"
+                        />
+                        <p className="subscription-text">
+                          Buy NXT Watch Premium prepaid plans with UPI
+                        </p>
+                        <button type="button" className="get-now-btn">
+                          GET IT NOW
+                        </button>
+                      </div>
+                      <button
+                        onClick={this.closeBanner}
+                        data-testid="close"
+                        type="button"
+                      >
+                        <IoCloseSharp className="banner-close-icon" />
                       </button>
                     </div>
-                    <button data-testid="close" type="button">
-                      <IoCloseSharp className="banner-close-icon" />
-                    </button>
-                  </div>
+                  )}
                   <div className="home-videos-and-search-container">
                     <div className="search-container">
                       <input
+                        value={searchInput}
+                        onChange={this.updateSearchInput}
                         placeholder="Search"
                         type="search"
                         className="search-bar"
                       />
                       <div className="search-icon">
-                        <AiOutlineSearch />
+                        <button type="button" onClick={this.filterResults}>
+                          <AiOutlineSearch />
+                        </button>
                       </div>
                     </div>
                     <div className="home-videos-container">

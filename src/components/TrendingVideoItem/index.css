@@ -1,0 +1,71 @@
+.trending-video-card {
+  background-color: transparent;
+  padding: 10px;
+  display: flex;
+  width: 80%;
+}
+.link-style {
+  text-decoration: none;
+}
+.trending-thumbnail {
+  width: 40%;
+  margin-right: 10px;
+}
+.dark-heading {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #f9f9f9;
+}
+.dark-heading {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #f9f9f9;
+}
+.light-heading {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: #1e293b;
+}
+.trending-channel-logo {
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+.trending-video-card-sm {
+  display: none;
+}
+@media (max-width: 768px) {
+  .trending-channel-logo {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .trending-thumbnail {
+    width: 90vw;
+  }
+  .trending-video-card-sm {
+    background-color: transparent;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-right: 20px;
+  }
+  .trending-video-card {
+    display: none;
+  }
+  .logo-and-content-container {
+    display: flex;
+    align-items: center;
+  }
+  .light-heading {
+    font-size: 13px;
+  }
+  .dark-heading {
+    font-size: 13px;
+  }
+  .trending-content {
+    display: flex;
+  }
+}

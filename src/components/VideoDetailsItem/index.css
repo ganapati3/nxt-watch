@@ -2,3 +2,67 @@
   display: flex;
   justify-content: space-between;
 }
+.loader-video-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 30px;
+}
+.video-details-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  padding: 30px;
+}
+
+.video-player {
+  margin-top: 0px;
+  padding-top: 0px;
+  width: 75vw;
+  height: 500px;
+}
+.video-details-content-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.views-and-like-Container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.reaction-btn-light {
+  font-size: 15px;
+  color: #64748b;
+  margin-right: 10px;
+  font-weight: 600;
+}
+.reaction-btn-dark {
+  font-size: 15px;
+  color: #64748b;
+  margin-right: 10px;
+  font-weight: 600;
+}
+.active-reaction-btn {
+  color: #2563eb;
+  font-weight: 600;
+}
+hr {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .video-player {
+    width: 90vw;
+    height: 250px;
+    margin-left: 20px;
+  }
+  .video-details-container {
+    align-items: center;
+    width: 100vw;
+  }
+  .views-and-like-Container {
+    flex-direction: column;
+  }
+}

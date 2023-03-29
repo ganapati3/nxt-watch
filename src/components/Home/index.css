@@ -48,14 +48,14 @@
 }
 .search-container {
   display: flex;
-  width: 35%;
+  width: 45%;
   height: 35px;
   border: #cccccc 1px solid;
   margin-bottom: 20px;
 }
 .search-bar {
   background-color: transparent;
-  width: 80%;
+  width: 90%;
   border: none;
   outline: none;
   padding-left: 15px;

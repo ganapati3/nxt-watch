@@ -26,6 +26,9 @@
   margin: 10px;
   margin-left: 0px;
 }
+.active-link {
+  background-color: #cbd5e1;
+}
 
 .social-icons-container {
   display: flex;

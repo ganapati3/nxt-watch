@@ -33,7 +33,7 @@ export const CheckboxLabel = styled(Label)`
   font-weight: 400;
 `
 export const NavBar = styled.nav`
-  background-color: ${props => (props.theme === true ? '#181818' : '#ffffff')};
+  background-color: ${props => (props.theme === true ? '#181818' : '#f9f9f9')};
   height: 10vh;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ export const HamburgerContainer = styled.div`
   flex-direction: column;
 `
 export const SideBarContainer = styled.div`
-  background-color: ${props => (props.theme === true ? '#181818' : '#ffffff')};
+  background-color: ${props => (props.theme === true ? '#181818' : '#f9f9f9')};
   width: 22vw;
   height: 90vh;
   display: flex;
@@ -108,7 +108,8 @@ export const VideoAndBannerContainer = styled.div`
     width: 100vw;
   }
   margin-left: 22vw;
-  margin-top: 10vh;
+  margin-top: 9vh;
+  min-height: 90vh;
 `
 
 export const FailureTextHeading = styled.h1`
@@ -124,4 +125,23 @@ export const FailureTextHeading = styled.h1`
 export const FailureTextDescription = styled.p`
   color: ${props => (props.theme === true ? '#909090' : '#475569')};
   font-family: 'Roboto';
+`
+export const RouteHeader = styled.div`
+  background-color: ${props => (props.theme === true ? '#212121' : '#f4f4f4')};
+  height: 18vh;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+`
+export const HeaderLogo = styled.div`
+  background-color: ${props => (props.theme === true ? '#000000' : '#e2e8f0')};
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 `

@@ -1,0 +1,24 @@
+.trending-logo {
+  color: #ff0b37;
+  font-size: 30px;
+}
+.trending-videos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  list-style: none;
+  margin: 10px;
+}
+.trending-heading-light {
+  color: #1e293b;
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 30px;
+}
+.trending-heading-dark {
+  color: #f9f9f9;
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 30px;
+}
