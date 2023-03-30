@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
+.views-and-published-container {
+  display: flex;
+  align-items: center;
+}
 .loader-video-details-container {
   display: flex;
   flex-direction: column;
@@ -39,14 +43,11 @@
   margin-right: 10px;
   font-weight: 600;
 }
-.reaction-btn-dark {
-  font-size: 15px;
-  color: #64748b;
-  margin-right: 10px;
-  font-weight: 600;
-}
+
 .active-reaction-btn {
   color: #2563eb;
+  font-size: 15px;
+  margin-right: 10px;
   font-weight: 600;
 }
 hr {

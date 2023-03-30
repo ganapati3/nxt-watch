@@ -1,12 +1,12 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {HiFire} from 'react-icons/hi'
 import Loader from 'react-loader-spinner'
 import {SiYoutubegaming} from 'react-icons/si'
 import Header from '../Header'
 import SideBar from '../SideBar'
+import GamingVideoItem from '../GamingVideoItem'
 import {
-  VideoAndBannerContainer,
+  TrendingContainer,
   FailureTextHeading,
   FailureTextDescription,
   RouteHeader,
@@ -22,17 +22,17 @@ const apiConstants = {
 }
 
 class Gaming extends Component {
-  state = {apiStatu: '', trendingVideos: []}
+  state = {apiStatus: '', gamingVideos: []}
 
   componentDidMount() {
-    this.getTrendingVideos()
+    this.getGamingVideos()
   }
 
-  getTrendingVideos = async () => {
+  getGamingVideos = async () => {
     this.setState({apiStatus: apiConstants.loading})
 
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/videos/trending`
+    const url = `https://apis.ccbp.in/videos/gaming`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -41,19 +41,17 @@ class Gaming extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
+
     if (response.ok) {
       const formattedData = data.videos.map(eachVideo => ({
         id: eachVideo.id,
-        name: eachVideo.channel.name,
-        profileImageUrl: eachVideo.channel.profile_image_url,
-        publishedAt: eachVideo.published_at,
         thumbnailUrl: eachVideo.thumbnail_url,
         title: eachVideo.title,
         viewCount: eachVideo.view_count,
       }))
       this.setState({
         apiStatus: apiConstants.success,
-        trendingVideos: formattedData,
+        gamingVideos: formattedData,
       })
     } else {
       this.setState({apiStatus: apiConstants.failure})
@@ -61,7 +59,7 @@ class Gaming extends Component {
   }
 
   onClickRetry = () => {
-    this.getTrendingVideos()
+    this.getGamingVideos()
   }
 
   renderLoader = () => (
@@ -80,7 +78,7 @@ class Gaming extends Component {
 
         return (
           <div className="loader-video-details-container">
-            <img className="failure-img" src={failureImg} alt="failure" />
+            <img className="failure-img" src={failureImg} alt="failure view" />
             <FailureTextHeading theme={isDark}>
               Oops! Something Went Wrong
             </FailureTextHeading>
@@ -101,8 +99,8 @@ class Gaming extends Component {
     </ThemeContext.Consumer>
   )
 
-  renderTrendingVideos = () => {
-    const {trendingVideos} = this.state
+  renderGamingVideos = () => {
+    const {gamingVideos} = this.state
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -118,6 +116,11 @@ class Gaming extends Component {
                 </HeaderLogo>
                 <h1 className={trendingHeading}>Gaming</h1>
               </RouteHeader>
+              <ul className="gaming-video-items">
+                {gamingVideos.map(video => (
+                  <GamingVideoItem key={video.id} videoDetails={video} />
+                ))}
+              </ul>
             </>
           )
         }}
@@ -133,7 +136,7 @@ class Gaming extends Component {
       case apiConstants.failure:
         return this.renderFailureView()
       case apiConstants.success:
-        return this.renderTrendingVideos()
+        return this.renderGamingVideos()
       default:
         return null
     }
@@ -145,13 +148,13 @@ class Gaming extends Component {
         {value => {
           const {isDark} = value
           return (
-            <div data-testid="trending">
+            <div>
               <Header />
               <div className="side-bar-and-video-container">
                 <SideBar />
-                <VideoAndBannerContainer theme={isDark}>
+                <TrendingContainer data-testid="gaming" theme={isDark}>
                   {this.renderTrendingView()}
-                </VideoAndBannerContainer>
+                </TrendingContainer>
               </div>
             </div>
           )

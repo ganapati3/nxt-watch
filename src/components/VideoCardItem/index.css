@@ -4,6 +4,10 @@
   list-style: none;
   margin-right: 10px;
 }
+.views-and-published-container {
+  display: flex;
+  align-items: center;
+}
 .thumbnail-img {
   width: 100%;
 }
@@ -18,14 +22,12 @@
   color: #1e293b;
   font-family: 'Roboto';
   font-size: 14px;
-  line-height: 20px;
   margin-top: 0px;
 }
 .dark-card-content {
   color: #f1f1f1;
   font-family: 'Roboto';
   font-size: 14px;
-  line-height: 20px;
   margin-top: 0px;
 }
 .video-card-content {

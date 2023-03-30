@@ -22,3 +22,7 @@
   font-weight: 600;
   font-size: 30px;
 }
+.side-bar-and-video-container {
+  display: flex;
+  justify-content: space-between;
+}

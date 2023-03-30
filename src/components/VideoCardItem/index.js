@@ -41,11 +41,11 @@ const VideoCardItem = props => {
                 <div>
                   <p className={fontStyle}>{title}</p>
                   <p className="video-card-content">{name}</p>
-                  <p className="video-card-content">
-                    {viewCount} views
+                  <div className="views-and-published-container">
+                    <p className="video-card-content">{viewCount} views</p>
                     <GoPrimitiveDot />
-                    {formatDate.slice(1).join(' ')} ago{' '}
-                  </p>
+                    <p className="video-card-content">{publishedAt} ago </p>
+                  </div>
                 </div>
               </div>
             </li>

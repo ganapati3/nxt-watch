@@ -6,7 +6,7 @@ import Header from '../Header'
 import SideBar from '../SideBar'
 import TrendingVideoItem from '../TrendingVideoItem'
 import {
-  VideoAndBannerContainer,
+  TrendingContainer,
   FailureTextHeading,
   FailureTextDescription,
   RouteHeader,
@@ -21,8 +21,8 @@ const apiConstants = {
   loading: 'loading',
 }
 
-class Trending extends Component {
-  state = {apiStatu: '', trendingVideos: []}
+class TrendingPage extends Component {
+  state = {apiStatus: '', trendingVideos: []}
 
   componentDidMount() {
     this.getTrendingVideos()
@@ -80,7 +80,7 @@ class Trending extends Component {
 
         return (
           <div className="loader-video-details-container">
-            <img className="failure-img" src={failureImg} alt="failure" />
+            <img className="failure-img" src={failureImg} alt="failure view" />
             <FailureTextHeading theme={isDark}>
               Oops! Something Went Wrong
             </FailureTextHeading>
@@ -153,13 +153,13 @@ class Trending extends Component {
         {value => {
           const {isDark} = value
           return (
-            <div data-testid="trending">
+            <div className="main-container">
               <Header />
               <div className="side-bar-and-video-container">
                 <SideBar />
-                <VideoAndBannerContainer theme={isDark}>
+                <TrendingContainer data-testid="trending" theme={isDark}>
                   {this.renderTrendingView()}
-                </VideoAndBannerContainer>
+                </TrendingContainer>
               </div>
             </div>
           )
@@ -169,4 +169,4 @@ class Trending extends Component {
   }
 }
 
-export default Trending
+export default TrendingPage

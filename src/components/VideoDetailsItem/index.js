@@ -9,7 +9,7 @@ import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
-  VideoAndBannerContainer,
+  TrendingContainer,
   FailureTextHeading,
   FailureTextDescription,
 } from '../../StyledComponent'
@@ -86,7 +86,7 @@ class VideoDetailsItem extends Component {
 
         return (
           <div className="loader-video-details-container">
-            <img className="failure-img" src={failureImg} alt="failure" />
+            <img className="failure-img" src={failureImg} alt="failure view" />
             <FailureTextHeading theme={isDark}>
               Oops! Something Went Wrong
             </FailureTextHeading>
@@ -122,27 +122,30 @@ class VideoDetailsItem extends Component {
       name,
       profileImageUrl,
       publishedAt,
-      thumbnailUrl,
       title,
       viewCount,
       description,
       videoUrl,
+      subscriberCount,
     } = videoDetails
     const formatDate = formatDistanceToNow(new Date(publishedAt)).split(' ')
-    const liked = isLiked ? 'active-reaction-btn' : ''
-    const disliked = isDisliked ? 'active-reaction-btn' : ''
 
     return (
       <ThemeContext.Consumer>
         {value => {
           const {isDark, savedList, addToSaved} = value
           const fontStyle = isDark ? 'dark-card-content' : 'light-card-content'
-          const btnStyle = isDark ? 'reaction-btn-light' : 'reaction-btn-dark'
+
+          const liked = isLiked ? 'active-reaction-btn' : 'reaction-btn-light'
+          const disliked = isDisliked
+            ? 'active-reaction-btn'
+            : 'reaction-btn-light'
           const onClickSave = () => {
             addToSaved(videoDetails)
           }
+          const isSaved = savedList.find(eachItem => eachItem.id === id)
 
-          const savedText = savedList.includes(videoDetails)
+          const savedText = isSaved
             ? ['Saved', 'active-reaction-btn']
             : ['Save', '']
 
@@ -155,35 +158,37 @@ class VideoDetailsItem extends Component {
                 <div className="video-details-content-card">
                   <p className={fontStyle}>{title}</p>
                   <div className="views-and-like-Container">
-                    <p className="video-card-content">
-                      {viewCount} views
+                    <div className="video-card-content views-and-published-container">
+                      <p className="video-card-content">{viewCount} views</p>
                       <GoPrimitiveDot />
-                      {formatDate.slice(1).join(' ')} ago{' '}
-                    </p>
+                      <p className="video-card-content">
+                        {formatDate.slice(1).join(' ')} ago{' '}
+                      </p>
+                    </div>
                     <div>
                       <button
                         onClick={this.onClickLike}
-                        className={`${btnStyle} ${liked}`}
+                        className={liked}
                         type="button"
                       >
-                        <BiLike className={`${btnStyle} ${liked}`} />
+                        <BiLike className={liked} />
                         Like
                       </button>
                       <button
                         onClick={this.onClickDislike}
-                        className={`${btnStyle} ${disliked}`}
+                        className={disliked}
                         type="button"
                       >
-                        <BiDislike className={`${btnStyle} ${disliked}`} />
+                        <BiDislike className={disliked} />
                         Dislike
                       </button>
                       <button
                         onClick={onClickSave}
-                        className={`${btnStyle} ${savedText[1]}`}
+                        className={`reaction-btn-light ${savedText[1]}`}
                         type="button"
                       >
                         <CgPlayListAdd
-                          className={`${btnStyle} ${savedText[1]}`}
+                          className={`reaction-btn-light ${savedText[1]}`}
                         />
                         {savedText[0]}
                       </button>
@@ -199,9 +204,7 @@ class VideoDetailsItem extends Component {
                     <div>
                       <p className="video-card-content">{name}</p>
                       <p className="video-card-content">
-                        {viewCount} views
-                        <GoPrimitiveDot />
-                        {formatDate.slice(1).join(' ')} ago{' '}
+                        {subscriberCount} subscribers
                       </p>
                       <p className={fontStyle}>{description}</p>
                     </div>
@@ -235,13 +238,16 @@ class VideoDetailsItem extends Component {
         {value => {
           const {isDark} = value
           return (
-            <div data-testid="videoItemDetails">
+            <div>
               <Header />
               <div className="side-bar-and-video-container">
                 <SideBar />
-                <VideoAndBannerContainer theme={isDark}>
+                <TrendingContainer
+                  data-testid="videoItemDetails"
+                  theme={isDark}
+                >
                   {this.renderVideoDetailsItem()}
-                </VideoAndBannerContainer>
+                </TrendingContainer>
               </div>
             </div>
           )

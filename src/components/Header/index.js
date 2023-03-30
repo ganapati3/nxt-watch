@@ -1,4 +1,4 @@
-import {withRouter, Link, NavLink} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 import {FiSun, FiLogOut} from 'react-icons/fi'
@@ -57,11 +57,15 @@ const Header = props => {
           <>
             <NavBar theme={isDark}>
               <Link to="/">
-                <img className="logo" src={logo} alt="nxt watch logo" />
+                <img className="logo" src={logo} alt="website logo" />
               </Link>
               <ul className="sm-icon-container">
                 <li>
-                  <button onClick={toggleTheme} type="button">
+                  <button
+                    data-testid="theme"
+                    onClick={toggleTheme}
+                    type="button"
+                  >
                     {lightAndDarkLogo[0]}
                   </button>
                 </li>
@@ -78,11 +82,11 @@ const Header = props => {
                           {lightAndDarkLogo[3]}
                         </button>
                         <ul className="link-item-container">
-                          <NavLink to="/" activeClassName="active">
+                          <Link to="/" className={linkStyle}>
                             <li>
                               <AiFillHome /> Home
                             </li>
-                          </NavLink>
+                          </Link>
                           <Link to="/trending" className={linkStyle}>
                             <li>
                               <HiFire /> Trending
@@ -95,7 +99,7 @@ const Header = props => {
                           </Link>
                           <Link className={linkStyle} to="/saved-videos">
                             <li>
-                              <MdPlaylistAdd /> Saved
+                              <MdPlaylistAdd /> Saved Videos
                             </li>
                           </Link>
                         </ul>
@@ -110,7 +114,7 @@ const Header = props => {
                   {close => (
                     <LogoutContainer theme={isDark}>
                       <p className={logoutText}>
-                        Are you sure you want to logout?
+                        Are you sure, you want to logout
                       </p>
                       <div>
                         <button
@@ -125,7 +129,7 @@ const Header = props => {
                           type="button"
                           className="logout-btn"
                         >
-                          Logout
+                          Confirm
                         </button>
                       </div>
                     </LogoutContainer>
@@ -134,7 +138,11 @@ const Header = props => {
               </ul>
               <ul className="md-icon-container">
                 <li>
-                  <button onClick={toggleTheme} type="button">
+                  <button
+                    data-testid="theme"
+                    onClick={toggleTheme}
+                    type="button"
+                  >
                     {lightAndDarkLogo[0]}
                   </button>
                 </li>
@@ -156,7 +164,7 @@ const Header = props => {
                   {close => (
                     <LogoutContainer theme={isDark}>
                       <p className={logoutText}>
-                        Are you sure you want to logout?
+                        Are you sure, you want to logout
                       </p>
                       <div>
                         <button
@@ -171,7 +179,7 @@ const Header = props => {
                           type="button"
                           className="logout-btn"
                         >
-                          Logout
+                          Confirm
                         </button>
                       </div>
                     </LogoutContainer>

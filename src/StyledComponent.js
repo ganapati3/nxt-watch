@@ -8,12 +8,24 @@ export const LogInContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
+export const LoginBtn = styled.button`
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 10px;
+  align-self: stretch;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 15px;
+  height: 40px;
+`
 
 export const FormContainer = styled.form`
   background-color: ${props => (props.theme === true ? '#000000' : '#ffffff')};
   box-shadow: ${props =>
     props.theme === true ? '' : '2px 2px 4px 0px #e2e8f0'};
-  width: 40vw;
+  width: 400px;
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -112,6 +124,22 @@ export const VideoAndBannerContainer = styled.div`
   min-height: 90vh;
 `
 
+export const TrendingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => (props.theme === true ? '#0f0f0f' : '#f9f9f9')};
+  width: 78vw;
+  overflow: auto;
+  @media (max-width: 768px) {
+    min-height: 90vh;
+    margin-left: 0px;
+    width: 100vw;
+  }
+  margin-left: 22vw;
+  margin-top: 9vh;
+  min-height: 90vh;
+`
+
 export const FailureTextHeading = styled.h1`
   color: ${props => (props.theme === true ? '#f9f9f9' : '#1e293b')};
   font-family: 'Roboto';
@@ -144,4 +172,16 @@ export const HeaderLogo = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+`
+
+export const BannerContainer = styled.div`
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  height: 25%;
+  background-size: 100% 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `

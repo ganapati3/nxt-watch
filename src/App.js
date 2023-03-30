@@ -1,11 +1,14 @@
 import {Component} from 'react'
 import {Route, Redirect, Switch} from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 import ThemeContext from './ThemeContext/ThemeContext'
 import LoginForm from './components/LogInForm'
 import Home from './components/Home'
 import VideoDetailsItem from './components/VideoDetailsItem'
-import Trending from './components/Trending'
+import TrendingPage from './components/Trending'
 import Gaming from './components/Gaming'
+import SavedVideos from './components/SavedVideos'
+import NotFound from './components/NotFound'
 import './App.css'
 
 // Replace your code here
@@ -18,7 +21,13 @@ class App extends Component {
 
   addToSaved = list => {
     const {savedList} = this.state
-    this.setState(prevState => ({savedList: [...prevState.savedList, list]}))
+    const isSaved = savedList.find(eachItem => eachItem.id === list.id)
+    if (isSaved !== undefined) {
+      const filtered = savedList.filter(item => item.id !== list.id)
+      this.setState({savedList: filtered})
+    } else {
+      this.setState(prevState => ({savedList: [...prevState.savedList, list]}))
+    }
   }
 
   render() {
@@ -35,10 +44,17 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/videos/:id" component={VideoDetailsItem} />
-          <Route exact path="/trending" component={Trending} />
-          <Route exact path="/gaming" component={Gaming} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoDetailsItem}
+          />
+          <ProtectedRoute exact path="/trending" component={TrendingPage} />
+          <ProtectedRoute exact path="/gaming" component={Gaming} />
+          <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
+          <Route exact path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
         </Switch>
       </ThemeContext.Provider>
     )

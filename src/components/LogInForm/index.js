@@ -6,6 +6,7 @@ import {
   LogInContainer,
   FormContainer,
   Label,
+  LoginBtn,
   CheckboxLabel,
 } from '../../StyledComponent'
 import './index.css'
@@ -69,7 +70,7 @@ class LoginForm extends Component {
           return (
             <LogInContainer theme={isDark}>
               <FormContainer onSubmit={this.onClickLogin} theme={isDark}>
-                <img src={loginImg} alt="logo" className="login-logo" />
+                <img src={loginImg} alt="website logo" className="login-logo" />
                 <Label theme={isDark} htmlFor="username">
                   USERNAME
                 </Label>
@@ -99,12 +100,12 @@ class LoginForm extends Component {
                     id="checkbox"
                   />
                   <CheckboxLabel theme={isDark} htmlFor="checkbox">
-                    ShowPassword
+                    Show Password
                   </CheckboxLabel>
                 </div>
-                <button type="submit" className="login-btn">
+                <LoginBtn type="submit" className="login-btn">
                   Login
-                </button>
+                </LoginBtn>
                 {errMsg !== '' && <p className="err-msg">*{errMsg}</p>}
               </FormContainer>
             </LogInContainer>

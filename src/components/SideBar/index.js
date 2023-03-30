@@ -1,4 +1,4 @@
-import {Link, NavLink, withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
@@ -17,41 +17,26 @@ const SideBar = props => {
         return (
           <SideBarContainer theme={isDark}>
             <ul className="link-item-container">
-              <NavLink
-                to="/"
-                className={isActive => (isActive ? 'active' : {linkStyle})}
-              >
+              <Link to="/" className={linkStyle}>
                 <li>
                   <AiFillHome className="link-icon" /> Home
                 </li>
-              </NavLink>
-              <NavLink
-                activeClassName="active"
-                to="/trending"
-                className={linkStyle}
-              >
+              </Link>
+              <Link to="/trending" className={linkStyle}>
                 <li>
                   <HiFire className="link-icon" /> Trending
                 </li>
-              </NavLink>
-              <NavLink
-                activeClassName="active"
-                to="/gaming"
-                className={linkStyle}
-              >
+              </Link>
+              <Link to="/gaming" className={linkStyle}>
                 <li>
                   <SiYoutubegaming className="link-icon" /> Gaming
                 </li>
-              </NavLink>
-              <NavLink
-                activeClassName="active"
-                className={linkStyle}
-                to="/saved-videos"
-              >
+              </Link>
+              <Link className={linkStyle} to="/saved-videos">
                 <li>
-                  <MdPlaylistAdd className="link-icon" /> Saved
+                  <MdPlaylistAdd className="link-icon" /> Saved Videos
                 </li>
-              </NavLink>
+              </Link>
             </ul>
             <div>
               <CustomText theme={isDark} as="p">

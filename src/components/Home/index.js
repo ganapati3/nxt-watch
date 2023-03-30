@@ -9,6 +9,7 @@ import VideoCardItem from '../VideoCardItem'
 import ThemeContext from '../../ThemeContext/ThemeContext'
 
 import {
+  BannerContainer,
   VideoAndBannerContainer,
   FailureTextHeading,
   FailureTextDescription,
@@ -85,7 +86,7 @@ class Home extends Component {
 
         return (
           <>
-            <img className="failure-img" src={failureImg} alt="failure" />
+            <img className="failure-img" src={failureImg} alt="failure view" />
             <FailureTextHeading theme={isDark}>
               Oops! Something Went Wrong
             </FailureTextHeading>
@@ -122,7 +123,7 @@ class Home extends Component {
               No Search results found
             </FailureTextHeading>
             <FailureTextDescription theme={isDark}>
-              Try different keywords or remove search results
+              Try different key words or remove search filter
             </FailureTextDescription>
             <button
               onClick={this.onClickRetry}
@@ -193,7 +194,10 @@ class Home extends Component {
                 <SideBar />
                 <VideoAndBannerContainer theme={isDark} data-testid="home">
                   {isBannerClosed ? null : (
-                    <div className="banner-container">
+                    <BannerContainer
+                      data-testid="banner"
+                      className="banner-container"
+                    >
                       <div>
                         <img
                           className="banner-logo"
@@ -214,7 +218,7 @@ class Home extends Component {
                       >
                         <IoCloseSharp className="banner-close-icon" />
                       </button>
-                    </div>
+                    </BannerContainer>
                   )}
                   <div className="home-videos-and-search-container">
                     <div className="search-container">
@@ -226,7 +230,11 @@ class Home extends Component {
                         className="search-bar"
                       />
                       <div className="search-icon">
-                        <button type="button" onClick={this.filterResults}>
+                        <button
+                          data-testid="searchButton"
+                          type="button"
+                          onClick={this.filterResults}
+                        >
                           <AiOutlineSearch />
                         </button>
                       </div>

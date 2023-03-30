@@ -1,0 +1,7 @@
+.gaming-video-items {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  list-style: none;
+  justify-content: center;
+}

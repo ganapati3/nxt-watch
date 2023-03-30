@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {GoPrimitiveDot} from 'react-icons/go'
 import {formatDistanceToNow} from 'date-fns'
 import ThemeContext from '../../ThemeContext/ThemeContext'
@@ -31,13 +31,13 @@ const TrendingVideoItem = props => {
                 alt="video thumbnail"
               />
               <div>
-                <h1 className={headingText}>{title}</h1>
+                <p className={headingText}>{title}</p>
                 <p className="video-card-content">{name}</p>
-                <p className="video-card-content">
-                  {viewCount} views
+                <div className="views-and-published-container video-card-content">
+                  <p className="video-card-content">{viewCount} views</p>
                   <GoPrimitiveDot />
-                  {formatDate.slice(1).join(' ')} ago{' '}
-                </p>
+                  <p className="video-card-content">{publishedAt} ago </p>
+                </div>
               </div>
             </li>
             <li className="trending-video-card-sm">
@@ -50,20 +50,18 @@ const TrendingVideoItem = props => {
                 <img
                   className="trending-channel-logo"
                   src={profileImageUrl}
-                  alt="channel logo"
+                  alt="profile"
                 />
                 <div>
-                  <h1 className={headingText}>{title}</h1>
+                  <p className={headingText}>{title}</p>
                   <div className="trending-content">
-                    <p className="video-card-content">
-                      {name}
+                    <div className="views-and-published-container video-card-content">
+                      <p className="video-card-content">{name}</p>
                       <GoPrimitiveDot />
-                    </p>
-                    <p className="video-card-content">
-                      {viewCount} views
+                      <p className="video-card-content">{viewCount} views</p>
                       <GoPrimitiveDot />
-                      {formatDate.slice(1).join(' ')} ago{' '}
-                    </p>
+                      <p className="video-card-content">{publishedAt} ago </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -75,4 +73,4 @@ const TrendingVideoItem = props => {
   )
 }
 
-export default TrendingVideoItem
+export default withRouter(TrendingVideoItem)
