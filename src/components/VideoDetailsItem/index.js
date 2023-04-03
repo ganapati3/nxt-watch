@@ -12,6 +12,7 @@ import {
   TrendingContainer,
   FailureTextHeading,
   FailureTextDescription,
+  ReactionICons,
 } from '../../StyledComponent'
 import ThemeContext from '../../ThemeContext/ThemeContext'
 import './index.css'
@@ -136,18 +137,12 @@ class VideoDetailsItem extends Component {
           const {isDark, savedList, addToSaved} = value
           const fontStyle = isDark ? 'dark-card-content' : 'light-card-content'
 
-          const liked = isLiked ? 'active-reaction-btn' : 'reaction-btn-light'
-          const disliked = isDisliked
-            ? 'active-reaction-btn'
-            : 'reaction-btn-light'
           const onClickSave = () => {
             addToSaved(videoDetails)
           }
           const isSaved = savedList.find(eachItem => eachItem.id === id)
 
-          const savedText = isSaved
-            ? ['Saved', 'active-reaction-btn']
-            : ['Save', '']
+          const savedText = isSaved ? 'Saved' : 'Save'
 
           return (
             <>
@@ -166,32 +161,30 @@ class VideoDetailsItem extends Component {
                       </p>
                     </div>
                     <div>
-                      <button
+                      <ReactionICons
+                        reaction={isLiked}
                         onClick={this.onClickLike}
-                        className={liked}
                         type="button"
                       >
-                        <BiLike className={liked} />
+                        <BiLike className="reaction-icon" />
                         Like
-                      </button>
-                      <button
+                      </ReactionICons>
+                      <ReactionICons
+                        reaction={isDisliked}
                         onClick={this.onClickDislike}
-                        className={disliked}
                         type="button"
                       >
-                        <BiDislike className={disliked} />
+                        <BiDislike className="reaction-icon" />
                         Dislike
-                      </button>
-                      <button
+                      </ReactionICons>
+                      <ReactionICons
+                        reaction={isSaved !== undefined}
                         onClick={onClickSave}
-                        className={`reaction-btn-light ${savedText[1]}`}
                         type="button"
                       >
-                        <CgPlayListAdd
-                          className={`reaction-btn-light ${savedText[1]}`}
-                        />
-                        {savedText[0]}
-                      </button>
+                        <CgPlayListAdd className="reaction-icon" />
+                        {savedText}
+                      </ReactionICons>
                     </div>
                   </div>
                   <hr />

@@ -15,10 +15,8 @@
 }
 .active {
   color: red;
-  text-decoration: none;
-  width: 100%;
-  font-weight: 600;
 }
+
 .social-icon {
   height: 30px;
   width: 30px;
@@ -26,8 +24,23 @@
   margin: 10px;
   margin-left: 0px;
 }
-.active-link {
-  background-color: #cbd5e1;
+.active-link-light {
+  background-color: #f1f5f9;
+  padding: 10px;
+  width: 100%;
+  height: 45px;
+  font-weight: 600;
+  margin-left: 0px;
+  padding-left: 0px;
+  display: flex;
+}
+.active-link-dark {
+  background-color: #313131;
+  padding: 10px;
+  width: 100%;
+  font-weight: 600;
+  margin-left: 0px;
+  display: flex;
 }
 
 .social-icons-container {

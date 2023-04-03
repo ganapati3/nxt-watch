@@ -8,33 +8,48 @@ import {SideBarContainer, CustomText} from '../../StyledComponent'
 import './index.css'
 
 const SideBar = props => {
+  const {match} = props
   const {location} = props
+  console.log(match)
+  const home = location.pathname === '/'
+  const trending = location.pathname === '/trending'
+  const gaming = location.pathname === '/gaming'
+  const saved = location.pathname === '/saved-videos'
   return (
     <ThemeContext.Consumer>
       {value => {
         const {isDark} = value
         const linkStyle = isDark ? 'link-item-dark' : 'link-item'
+        const darkOrLight = isDark ? 'active-link-dark' : 'active-link-light'
         return (
           <SideBarContainer theme={isDark}>
             <ul className="link-item-container">
               <Link to="/" className={linkStyle}>
-                <li>
-                  <AiFillHome className="link-icon" /> Home
+                <li className={home ? darkOrLight : ''}>
+                  <AiFillHome className={`link-icon ${home ? 'active' : ''}`} />{' '}
+                  Home
                 </li>
               </Link>
               <Link to="/trending" className={linkStyle}>
-                <li>
-                  <HiFire className="link-icon" /> Trending
+                <li className={trending ? darkOrLight : ''}>
+                  <HiFire className={`link-icon ${trending ? 'active' : ''}`} />{' '}
+                  Trending
                 </li>
               </Link>
               <Link to="/gaming" className={linkStyle}>
-                <li>
-                  <SiYoutubegaming className="link-icon" /> Gaming
+                <li className={gaming ? darkOrLight : ''}>
+                  <SiYoutubegaming
+                    className={`link-icon ${gaming ? 'active' : ''}`}
+                  />{' '}
+                  Gaming
                 </li>
               </Link>
               <Link className={linkStyle} to="/saved-videos">
-                <li>
-                  <MdPlaylistAdd className="link-icon" /> Saved Videos
+                <li className={saved ? darkOrLight : ''}>
+                  <MdPlaylistAdd
+                    className={`link-icon ${saved ? 'active' : ''}`}
+                  />{' '}
+                  Saved Videos
                 </li>
               </Link>
             </ul>

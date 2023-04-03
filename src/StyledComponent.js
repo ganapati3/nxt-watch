@@ -68,7 +68,7 @@ export const SideBarContainer = styled.div`
   width: 22vw;
   height: 90vh;
   display: flex;
-  padding: 10px;
+  padding-left: 10px;
   position: fixed;
   flex-direction: column;
   margin-top: 10vh;
@@ -184,4 +184,10 @@ export const BannerContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+`
+export const ReactionICons = styled.button`
+  font-size: 15px;
+  color: ${props => (props.reaction === true ? '#2563eb' : '#64748b')};
+  margin-right: 10px;
+  font-weight: 600;
 `

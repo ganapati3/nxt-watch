@@ -37,18 +37,8 @@
   width: 100%;
   justify-content: space-between;
 }
-.reaction-btn-light {
-  font-size: 15px;
-  color: #64748b;
+.reaction-icon {
   margin-right: 10px;
-  font-weight: 600;
-}
-
-.active-reaction-btn {
-  color: #2563eb;
-  font-size: 15px;
-  margin-right: 10px;
-  font-weight: 600;
 }
 hr {
   width: 100%;

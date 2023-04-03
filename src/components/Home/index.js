@@ -57,6 +57,7 @@ class Home extends Component {
         title: eachVideo.title,
         viewCount: eachVideo.view_count,
       }))
+      console.log(formattedData)
       this.setState({
         apiStatus: apiConstants.success,
         homeVideos: formattedData,
