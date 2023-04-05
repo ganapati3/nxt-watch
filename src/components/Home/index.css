@@ -101,4 +101,7 @@
   .failure-img {
     width: 80%;
   }
+  .video-card-items {
+    margin-right: 25px;
+  }
 }

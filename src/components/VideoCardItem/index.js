@@ -44,7 +44,9 @@ const VideoCardItem = props => {
                   <div className="views-and-published-container">
                     <p className="video-card-content">{viewCount} views</p>
                     <GoPrimitiveDot />
-                    <p className="video-card-content">{publishedAt} ago </p>
+                    <p className="video-card-content">
+                      {formatDate.slice(1).join(' ')} ago{' '}
+                    </p>
                   </div>
                 </div>
               </div>

@@ -23,6 +23,12 @@ const Header = props => {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
+  const {location} = props
+
+  const home = location.pathname === '/'
+  const trending = location.pathname === '/trending'
+  const gaming = location.pathname === '/gaming'
+  const saved = location.pathname === '/saved-videos'
 
   return (
     <ThemeContext.Consumer>
@@ -37,7 +43,8 @@ const Header = props => {
           ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
-        const linkStyle = isDark ? 'link-item-dark' : 'link-item'
+        const linkStyle = isDark ? 'link-item-dark' : 'link-item-light'
+        const darkOrLight = isDark ? 'active-link-dark' : 'active-link-light'
 
         const lightAndDarkLogo = isDark
           ? [
@@ -81,25 +88,29 @@ const Header = props => {
                         <button type="button" onClick={() => close()}>
                           {lightAndDarkLogo[3]}
                         </button>
-                        <ul className="link-item-container">
-                          <Link to="/" className={linkStyle}>
-                            <li>
-                              <AiFillHome /> Home
+                        <ul className="link-item-container link-item-container-sm ">
+                          <Link to="/" className="link-item">
+                            <li className={home ? darkOrLight : linkStyle}>
+                              <AiFillHome className="link-icon" />
+                              Home
                             </li>
                           </Link>
-                          <Link to="/trending" className={linkStyle}>
-                            <li>
-                              <HiFire /> Trending
+                          <Link to="/trending" className="link-item">
+                            <li className={trending ? darkOrLight : linkStyle}>
+                              <HiFire className="link-icon" />
+                              Trending
                             </li>
                           </Link>
-                          <Link to="/gaming" className={linkStyle}>
-                            <li>
-                              <SiYoutubegaming /> Gaming
+                          <Link to="/gaming" className="link-item">
+                            <li className={gaming ? darkOrLight : linkStyle}>
+                              <SiYoutubegaming className="link-icon" />
+                              Gaming
                             </li>
                           </Link>
-                          <Link className={linkStyle} to="/saved-videos">
-                            <li>
-                              <MdPlaylistAdd /> Saved Videos
+                          <Link className="link-item" to="/saved-videos">
+                            <li className={saved ? darkOrLight : linkStyle}>
+                              <MdPlaylistAdd className="link-icon" />
+                              Saved Videos
                             </li>
                           </Link>
                         </ul>
